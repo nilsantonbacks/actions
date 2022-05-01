@@ -51,6 +51,7 @@ env:
 
   # 🖊️ EDIT to specify custom tags for the container image, or default tags will be generated below.
   IMAGE_TAGS: ""
+  IMAGE_NAME: "github-action-test-image"
 
 on:
   # https://docs.github.com/en/actions/reference/events-that-trigger-workflows
@@ -129,7 +130,7 @@ jobs:
        path_context: '.'
        builder_image: 'registry.access.redhat.com/dotnet/dotnetcore-11-rhel7'
        image: ${{ env.IMAGE_NAME }}
-       tags: ${{ env.TAGS }}
+       tags: ${{ env.IMAGE_TAGS }}
 
     # https://github.com/redhat-actions/push-to-registry#readme
     - name: Push to registry
