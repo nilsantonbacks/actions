@@ -52,6 +52,7 @@ env:
   # 🖊️ EDIT to specify custom tags for the container image, or default tags will be generated below.
   IMAGE_TAGS: ""
   IMAGE_NAME: "github-action-test-image"
+  TAGS: v1 ${{ github.sha }}
 
 on:
   # https://docs.github.com/en/actions/reference/events-that-trigger-workflows
