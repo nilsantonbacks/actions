@@ -122,7 +122,16 @@ jobs:
       run: |
         echo "IMAGE_TAGS=latest ${GITHUB_SHA::12}" | tee -a $GITHUB_ENV
 
-#---------------------------- build
+   # Setup S2i and Build container image
+    - name: Setup and Build
+      id: build-image
+      uses: redhat-actions/s2i-build@v2
+      with:
+        path_context: '.'
+       # Builder image for a java project
+        builder_image: 'registry.access.redhat.com/rhscl/nginx-120-rhel7'
+        image: ${{ env.IMAGE_NAME }}
+        tags: ${{ env.TAGS }}
 
     # https://github.com/redhat-actions/push-to-registry#readme
     - name: Push to registry
