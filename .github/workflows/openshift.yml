@@ -122,15 +122,7 @@ jobs:
       run: |
         echo "IMAGE_TAGS=latest ${GITHUB_SHA::12}" | tee -a $GITHUB_ENV
 
-  # Setup S2i and Build container image
-    - name: Setup and Build
-      id: build-image
-      uses: redhat-actions/s2i-build@v2
-      with:
-       path_context: '.'
-       builder_image: 'registry.access.redhat.com/dotnet/dotnetcore-11-rhel7'
-       image: ${{ env.IMAGE_NAME }}
-       tags: ${{ env.IMAGE_TAGS }}
+#---------------------------- build
 
     # https://github.com/redhat-actions/push-to-registry#readme
     - name: Push to registry
