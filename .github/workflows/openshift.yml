@@ -130,7 +130,7 @@ jobs:
       with:
         path_context: '.'
        # Builder image for a java project
-        builder_image: 'registry.redhat.com/rhscl/nginx-120-rhel7'
+        builder_image: 'registry.redhat.io/rhscl/nginx-120-rhel7'
         image: ${{ env.IMAGE_NAME }}
         tags: ${{ env.TAGS }}
 
